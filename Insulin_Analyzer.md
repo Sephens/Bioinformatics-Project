@@ -1,44 +1,48 @@
-Python is especially preferred in scientific computing applications such as physics, chemistry, and biology.
-In this project, we will perform simple sequence manipulations and calculations on human insulin, which is a well-known hormone in the human body that is responsible for regulating sugars.
-
-We will Retrieve the protein sequence of human insulin from human preproinsulin
-
-# Insulin Sequence Analysis Project
-
-This project involves the analysis of the human preproinsulin sequence, its breakdown into smaller components, and the calculation of its molecular weight. Below is a detailed explanation of the steps involved in this project.
+# **Bioinformatics Project: Analyzing Human Preproinsulin Sequence, Calculating Molecular Weight, and Net Charge**
 
 ---
 
-## Table of Contents
-- [Insulin Sequence Analysis Project](#insulin-sequence-analysis-project)
-  - [Table of Contents](#table-of-contents)
-  - [1. Storing the Human Preproinsulin Sequence](#1-storing-the-human-preproinsulin-sequence)
-  - [2. Breaking Down the Preproinsulin Sequence](#2-breaking-down-the-preproinsulin-sequence)
-  - [3. Merging Insulin Chains](#3-merging-insulin-chains)
-  - [4. Printing Sequences](#4-printing-sequences)
-  - [5. Calculating the Molecular Weight of Insulin](#5-calculating-the-molecular-weight-of-insulin)
-    - [5.1 Amino Acid Weights](#51-amino-acid-weights)
-    - [5.2 Counting Amino Acids](#52-counting-amino-acids)
-    - [5.3 Calculating Molecular Weight](#53-calculating-molecular-weight)
-    - [5.4 Printing the Molecular Weight](#54-printing-the-molecular-weight)
-    - [5.5 Calculating Error Percentage](#55-calculating-error-percentage)
-  - [6. Conclusion](#6-conclusion)
-    - [Key Takeaways:](#key-takeaways)
+This project involves the analysis of the human preproinsulin sequence, its breakdown into functional components (A-chain, B-chain, and C-peptide), and the calculation of its molecular weight using amino acid weights. Additionally, it calculates the net charge of insulin at different pH levels, providing a comprehensive example of sequence analysis and biochemical calculations in bioinformatics.
 
 ---
 
-## 1. Storing the Human Preproinsulin Sequence
+## **Table of Contents**
+- [**Bioinformatics Project: Analyzing Human Preproinsulin Sequence, Calculating Molecular Weight, and Net Charge**](#bioinformatics-project-analyzing-human-preproinsulin-sequence-calculating-molecular-weight-and-net-charge)
+  - [**Table of Contents**](#table-of-contents)
+  - [**1. Introduction**](#1-introduction)
+  - [**2. Storing the Human Preproinsulin Sequence**](#2-storing-the-human-preproinsulin-sequence)
+  - [**3. Breaking Down the Preproinsulin Sequence**](#3-breaking-down-the-preproinsulin-sequence)
+  - [**4. Merging Insulin Chains**](#4-merging-insulin-chains)
+  - [**5. Calculating the Molecular Weight of Insulin**](#5-calculating-the-molecular-weight-of-insulin)
+    - [**5.1 Amino Acid Weights**](#51-amino-acid-weights)
+    - [**5.2 Counting Amino Acids**](#52-counting-amino-acids)
+    - [**5.3 Calculating Molecular Weight**](#53-calculating-molecular-weight)
+  - [**6. Calculating the Net Charge of Insulin**](#6-calculating-the-net-charge-of-insulin)
+    - [**6.1 pKR Values of Amino Acids**](#61-pkr-values-of-amino-acids)
+    - [**6.2 Counting Relevant Amino Acids**](#62-counting-relevant-amino-acids)
+    - [**6.3 Net Charge Calculation**](#63-net-charge-calculation)
+  - [**7. Conclusion**](#7-conclusion)
+    - [**Key Takeaways:**](#key-takeaways)
+
+---
+
+## **1. Introduction**
+
+This project demonstrates the process of analyzing the human preproinsulin sequence, breaking it down into its constituent parts, calculating its molecular weight, and determining its net charge at various pH levels. These calculations are essential for understanding the biochemical properties of insulin, a critical hormone in human metabolism.
+
+---
+
+## **2. Storing the Human Preproinsulin Sequence**
 
 The human preproinsulin sequence is stored in a variable called `preproInsulin`. This sequence includes the signal peptide and the insulin chains.
 
 ```python
-preproInsulin = "malwmrllpllallalwgpdpaaafvnqhlcgshlvealylvcgergffytpktr" \
-"reaedlqvgqvelgggpgagslqplalegslqkrgiveqcctsicslyqlenycn"
+preproInsulin = "malwmrllpllallalwgpdpaaafvnqhlcgshlvealylvcgergffytpktrreaedlqvgqvelgggpgagslqplalegslqkrgiveqcctsicslyqlenycn"
 ```
 
 ---
 
-## 2. Breaking Down the Preproinsulin Sequence
+## **3. Breaking Down the Preproinsulin Sequence**
 
 The preproinsulin sequence is broken down into smaller components:
 
@@ -56,7 +60,7 @@ cInsulin = "rreaedlqvgqvelgggpgagslqplalegslqkr"
 
 ---
 
-## 3. Merging Insulin Chains
+## **4. Merging Insulin Chains**
 
 The B-chain and A-chain of insulin are merged into a single variable called `insulin`.
 
@@ -66,24 +70,11 @@ insulin = bInsulin + aInsulin
 
 ---
 
-## 4. Printing Sequences
-
-The sequences are printed to the console for verification.
-
-```python
-print("The sequence of human preproinsulin:")
-print(preproInsulin)
-
-print("The sequence of human insulin, chain a: " + aInsulin)
-```
-
----
-
-## 5. Calculating the Molecular Weight of Insulin
+## **5. Calculating the Molecular Weight of Insulin**
 
 The molecular weight of insulin is calculated using the amino acid weights and their counts in the insulin sequence.
 
-### 5.1 Amino Acid Weights
+### **5.1 Amino Acid Weights**
 
 A dictionary of amino acid weights is created.
 
@@ -96,7 +87,7 @@ aaWeights = {
 }
 ```
 
-### 5.2 Counting Amino Acids
+### **5.2 Counting Amino Acids**
 
 The count of each amino acid in the insulin sequence is calculated.
 
@@ -109,7 +100,7 @@ aaCountInsulin = {
 }
 ```
 
-### 5.3 Calculating Molecular Weight
+### **5.3 Calculating Molecular Weight**
 
 The molecular weight is calculated by multiplying the count of each amino acid by its weight and summing the results.
 
@@ -122,36 +113,73 @@ molecularWeightInsulin = sum({
 }.values())
 ```
 
-### 5.4 Printing the Molecular Weight
+---
 
-The calculated molecular weight is printed to the console.
+## **6. Calculating the Net Charge of Insulin**
+
+The net charge of insulin is calculated at different pH levels using the pKR values of specific amino acids.
+
+### **6.1 pKR Values of Amino Acids**
+
+The pKR values for amino acids that contribute to the net charge are stored in a dictionary.
 
 ```python
-print("The rough molecular weight of insulin: " + str(molecularWeightInsulin))
+pKR = {
+    'y': 10.07,  # Tyrosine
+    'c': 8.18,   # Cysteine
+    'k': 10.53,  # Lysine
+    'h': 6.00,   # Histidine
+    'r': 12.48,  # Arginine
+    'd': 3.65,   # Aspartic Acid
+    'e': 4.25    # Glutamic Acid
+}
 ```
 
-### 5.5 Calculating Error Percentage
+### **6.2 Counting Relevant Amino Acids**
 
-The error percentage is calculated by comparing the calculated molecular weight with the actual molecular weight of insulin.
+The count of each relevant amino acid in the insulin sequence is calculated.
 
 ```python
-molecularWeightInsulinActual = 5807.63
-errorPercentage = ((molecularWeightInsulin - molecularWeightInsulinActual) / molecularWeightInsulinActual) * 100
-print("Error percentage: " + str(errorPercentage))
+seqCount = {
+    x: float(insulin.count(x)) for x in ['y', 'c', 'k', 'h', 'r', 'd', 'e']
+}
+```
+
+### **6.3 Net Charge Calculation**
+
+The net charge is calculated for pH values ranging from 0 to 14.
+
+```python
+pH = 0
+while pH <= 14:
+    netCharge = (
+        +(sum({
+            x: ((seqCount[x] * (10**pKR[x])) / ((10**pH) + (10**pKR[x])) \
+            for x in ['k', 'h', 'r']
+        }.values()))
+        -(sum({
+            x: ((seqCount[x] * (10**pH)) / ((10**pH) + (10**pKR[x])) \
+            for x in ['y', 'c', 'd', 'e']
+        }.values()))
+    )
+    print('{0:.2f}'.format(pH), netCharge)
+    pH += 1
 ```
 
 ---
 
-## 6. Conclusion
+## **7. Conclusion**
 
-This project demonstrates the process of analyzing the human preproinsulin sequence, breaking it down into its constituent parts, and calculating its molecular weight. The calculated molecular weight is then compared to the actual molecular weight to determine the error percentage. This type of analysis is crucial in bioinformatics and molecular biology for understanding protein structure and function.
+This project provides a detailed analysis of the human preproinsulin sequence, including its breakdown into functional components, calculation of molecular weight, and determination of net charge at various pH levels. These calculations are essential for understanding the biochemical properties of insulin and its behavior under different physiological conditions.
 
 ---
 
-### Key Takeaways:
+### **Key Takeaways:**
 - The preproinsulin sequence is processed to extract the A-chain, B-chain, and C-peptide.
 - The molecular weight of insulin is calculated using amino acid weights and their counts.
-- The error percentage provides insight into the accuracy of the calculation compared to the known molecular weight.
+- The net charge of insulin is calculated at different pH levels using pKR values of specific amino acids.
+- This project serves as a foundational example of sequence analysis and biochemical calculations in bioinformatics.
 
-This project serves as a foundational example of sequence analysis and molecular weight calculation in bioinformatics.
+---
 
+This detailed markdown file provides a comprehensive explanation of the project, making it easy to understand and replicate.
