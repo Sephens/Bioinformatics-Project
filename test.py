@@ -3,15 +3,15 @@ preproInsulin = "malwmrllpllallalwgpdpaaafvnqhlcgshlvealylvcgergffytpktr" \
 
 # breaking the preproInsulin
 lsInsulin = preproInsulin[:24] # 24
-print(lsInsulin)
+print("lsInsulin: " + lsInsulin)
 
 bInsulinoInsulin =preproInsulin[24:54] # 30
-print(bInsulinoInsulin)
+print("bInsulinoInsulin: " + bInsulinoInsulin)
 
 cInsulin = preproInsulin[54:89] # 35
-print(cInsulin)
+print("cInsulin: " + cInsulin)
 
 aInsulin = preproInsulin[89:] # 21
-print(aInsulin)
+print("aInsulin: " + aInsulin)
 
 
